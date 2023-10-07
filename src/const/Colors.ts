@@ -1,7 +1,15 @@
 const Colors = {
-  pageBackground: "#F2F2F2",
-  primary: "#FBFBFB",
-  secondary: "#136AE4"
+  secondary: "#136AE4",
+  white: "#FFFFFF",
+  gray: {
+    shade1: "#B2B2B2",
+    shade2: "#F2F2F2",
+    shade3: "#929293"
+  },
+  black: {
+    shade1: "#000000",
+    shade2: "#020202"
+  }
 };
 
 export default Colors;
