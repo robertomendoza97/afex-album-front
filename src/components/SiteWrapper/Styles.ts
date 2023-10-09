@@ -7,7 +7,7 @@ export const SiteWrapperStyle = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 120px 356px 0;
+  padding: 120px 200px 0;
 
   & > main {
     flex-basis: 100%;
