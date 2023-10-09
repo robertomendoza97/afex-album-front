@@ -1,10 +1,11 @@
-import { Reducer } from "react";
-import { VideoState, VideoType } from "../../types";
+import { Reducer, ReactNode } from "react";
+import { VideoState, VideoType } from "../types";
 
 interface AddActionType {
   type: string;
   payload: VideoType;
 }
+
 interface SetStateActionType {
   type: string;
   payload: VideoType[];
@@ -20,17 +21,37 @@ interface EditLinkActionType {
   payload: string;
 }
 
+interface ShowModalActionType {
+  type: string;
+  payload: boolean;
+}
+
+interface ShowModalActionType {
+  type: string;
+  payload: boolean;
+}
+
+interface SetModalContentActionType {
+  type: string;
+  payload: ReactNode;
+}
+
 type ActionType =
   | AddActionType
   | RemoveActionType
   | EditLinkActionType
-  | SetStateActionType;
+  | SetStateActionType
+  | ShowModalActionType
+  | SetModalContentActionType;
 
 export const ACTIONS = {
   ADD: "addVideo",
   REMOVE: "removeVideo",
   EDIT_LINK: "editLink",
-  SET_STATE: "setState"
+  SET_STATE: "setState",
+  SHOW_MODAL: "showModal",
+  SET_MODAL_CONTENT: "setModalContent",
+  SET_LOADER_MSG: "setLoaderMessage"
 };
 
 const VideoReducer: Reducer<VideoState, ActionType> = (
@@ -60,6 +81,21 @@ const VideoReducer: Reducer<VideoState, ActionType> = (
       return {
         ...state,
         videos: action.payload as VideoType[]
+      };
+    case ACTIONS.SHOW_MODAL:
+      return {
+        ...state,
+        showModal: action.payload as boolean
+      };
+    case ACTIONS.SET_MODAL_CONTENT:
+      return {
+        ...state,
+        modalContent: action.payload as ReactNode
+      };
+    case ACTIONS.SET_LOADER_MSG:
+      return {
+        ...state,
+        loaderMessaje: action.payload as string
       };
 
     default:

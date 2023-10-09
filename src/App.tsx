@@ -1,5 +1,6 @@
 import { GlobalStyles } from "./GlobalStyles";
 import AddSection from "./components/AddSection";
+import ModalWrapper from "./components/ModalWrapper";
 import SiteWrapper from "./components/SiteWrapper";
 import Title from "./components/Title";
 import VideosSection from "./components/VideosSection";
@@ -9,6 +10,7 @@ function App() {
     <>
       <GlobalStyles />
       <SiteWrapper>
+        <ModalWrapper />
         <main>
           <Title />
           <AddSection />

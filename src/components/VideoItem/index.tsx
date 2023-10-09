@@ -1,5 +1,7 @@
 import useVideoContext from "../../customHooks/useVideoContext";
 import { deleteVideo } from "../../services/deleteVideo";
+import Errors from "../Errors";
+import Loader from "../Loader";
 import { VideoItemStyles } from "./Styles";
 
 interface VideoItemProps {
@@ -9,9 +11,19 @@ interface VideoItemProps {
 }
 
 const VideoItem = ({ img, duration, id }: VideoItemProps) => {
-  const { removeVideo } = useVideoContext();
+  const { removeVideo, showModal, setModalContent, setLoaderMsg } =
+    useVideoContext();
+
   const handleRemove = (id: string) => {
-    deleteVideo(id).then(() => removeVideo(id));
+    setModalContent(<Loader />);
+    setLoaderMsg("DELETING");
+    showModal(true);
+
+    deleteVideo(id).then(() => {
+      removeVideo(id);
+      setModalContent(<Errors />);
+      setLoaderMsg("DELETED");
+    });
   };
 
   return (

@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useMemo, useReducer } from "react";
-import { VideoContextType, VideoType } from "../types";
-import VideoReducer, { ACTIONS } from "../components/reducer/VideoReducer";
+import { VideoContextType, VideoState, VideoType } from "../types";
+import VideoReducer, { ACTIONS } from "../reducer/VideoReducer";
+import Loader from "../components/Loader";
 
 export const VideoContext = createContext<VideoContextType | undefined>(
   undefined
@@ -10,9 +11,12 @@ interface VideoContextProviderProps {
   children: ReactNode;
 }
 
-const initialState = {
+const initialState: VideoState = {
   linkVideo: "",
-  videos: []
+  videos: [],
+  showModal: true,
+  loaderMessaje: "INIT",
+  modalContent: <Loader />
 };
 
 export const VideoContextProvider = ({
@@ -33,6 +37,18 @@ export const VideoContextProvider = ({
       },
       setState(videos: VideoType[]) {
         dispatch({ type: ACTIONS.SET_STATE, payload: videos });
+      },
+      editLinkVideo(link: string) {
+        dispatch({ type: ACTIONS.EDIT_LINK, payload: link });
+      },
+      showModal(show: boolean) {
+        dispatch({ type: ACTIONS.SHOW_MODAL, payload: show });
+      },
+      setModalContent(content: ReactNode) {
+        dispatch({ type: ACTIONS.SET_MODAL_CONTENT, payload: content });
+      },
+      setLoaderMsg(msg: string) {
+        dispatch({ type: ACTIONS.SET_LOADER_MSG, payload: msg });
       }
     };
   }, [state]);
