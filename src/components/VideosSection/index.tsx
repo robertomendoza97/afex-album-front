@@ -1,9 +1,9 @@
 import VideoItem from "../VideoItem";
 import { VideosSectionStyles } from "./Styles";
-import convertTime from "../../utils/formatDuration";
 import { useEffect } from "react";
 import useVideoContext from "../../customHooks/useVideoContext";
 import { useGetAllVideos } from "../../customHooks/useGetAllVideos";
+import NoVideos from "../NoVideos";
 
 const VideosSection = () => {
   const { setState, getState, showModal } = useVideoContext();
@@ -20,20 +20,20 @@ const VideosSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  if (loading) return "loading";
   if (error) return "error";
 
   return (
-    <VideosSectionStyles>
-      {getState().videos.map(video => (
-        <VideoItem
-          key={video.ID}
-          duration={convertTime(video.duration)}
-          img={video.thumbnail}
-          id={video.ID}
-        />
-      )) || "sin videos por ahora"}
-    </VideosSectionStyles>
+    <>
+      {getState().videos.length > 0 ? (
+        getState().videos.map(video => (
+          <VideosSectionStyles>
+            <VideoItem key={video.ID} video={video} />
+          </VideosSectionStyles>
+        ))
+      ) : (
+        <NoVideos />
+      )}
+    </>
   );
 };
 

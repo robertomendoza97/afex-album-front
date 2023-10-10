@@ -16,17 +16,20 @@ const ModalWrapper = () => {
   };
 
   useEffect(() => {
-    const id = setTimeout(() => {
-      showModal(false);
-    }, 5000);
+    if (getState().loaderMessaje !== "keep") {
+      const id = setTimeout(() => {
+        showModal(false);
+      }, 5000);
 
-    idTimeout.current = id;
+      idTimeout.current = id;
+    }
 
     return () => {
       if (idTimeout.current) {
         clearTimeout(idTimeout.current);
       }
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getState().showModal]);
 

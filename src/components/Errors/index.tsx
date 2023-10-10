@@ -10,10 +10,11 @@ const Errors = () => {
   const { getState } = useVideoContext();
 
   const imgs: Record<string, string> = {
-    ERROR_409: ok,
+    ERROR_409: danger,
     ERROR_404: danger,
     SAVED: ok,
-    DELETED: check
+    DELETED: check,
+    INVALID_LINK: danger
   };
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {

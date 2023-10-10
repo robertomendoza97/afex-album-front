@@ -48,6 +48,10 @@ const AddSection = () => {
       setModalContent(<Errors />);
       addVideo(data as VideoType);
       setLoaderMsg("SAVED");
+    } else {
+      setLoaderMsg("INVALID_LINK");
+      setModalContent(<Errors />);
+      showModal(true);
     }
   };
 
