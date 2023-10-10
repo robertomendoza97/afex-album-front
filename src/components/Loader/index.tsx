@@ -1,7 +1,7 @@
 import { LoaderStyles } from "./Styles";
 import LoaderSVG from "../../assets/loader.svg?react";
 import useVideoContext from "../../customHooks/useVideoContext";
-import Texts from "../../const/Texts";
+import LABELS from "../../const/labels";
 
 const Loader = () => {
   const { getState } = useVideoContext();
@@ -10,7 +10,7 @@ const Loader = () => {
     <LoaderStyles>
       <div>
         <LoaderSVG />
-        <p>{Texts[getState().loaderMessaje]}</p>
+        <p>{LABELS[getState().loaderMessaje]}</p>
       </div>
     </LoaderStyles>
   );

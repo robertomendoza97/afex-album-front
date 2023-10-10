@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import useVideoContext from "../../customHooks/useVideoContext";
 import { useGetAllVideos } from "../../customHooks/useGetAllVideos";
 import NoVideos from "../NoVideos";
+import LABELS from "../../const/labels";
 
 const VideosSection = () => {
   const { setState, getState, showModal } = useVideoContext();
@@ -20,7 +21,16 @@ const VideosSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  if (error) return "error";
+  useEffect(() => {
+    if (error && !loading) {
+      showModal(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [error, loading]);
+
+  if (error && !loading) {
+    return LABELS.UNSPECTED_ERROR;
+  }
 
   return (
     <>

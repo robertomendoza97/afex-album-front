@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import Texts from "../../const/Texts";
+import LABELS from "../../const/labels";
 import useVideoContext from "../../customHooks/useVideoContext";
 import { ErrorsStyles } from "./Styles";
 import danger from "../../assets/peligro.png";
@@ -24,7 +24,7 @@ const Errors = () => {
   return (
     <ErrorsStyles onClick={handleClick}>
       <img src={imgs[getState().loaderMessaje]} alt="some img" />
-      <p>{Texts[getState().loaderMessaje]}</p>
+      <p>{LABELS[getState().loaderMessaje]}</p>
     </ErrorsStyles>
   );
 };

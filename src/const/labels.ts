@@ -1,4 +1,4 @@
-const Texts: Record<string, string> = {
+const LABELS: Record<string, string> = {
   TITLE: "Añadir nuevo video",
   ADD: "Añadir",
   INIT: "Buscando videos",
@@ -18,7 +18,8 @@ const Texts: Record<string, string> = {
   STEP4: 'Presiona el boton azul "Añadir"',
   STEP5: "🎉 ¡Bien hecho! 🎉 ya guardaste tu primer video",
   YOUTUBE_LINK: "https://www.youtube.com/",
-  INVALID_LINK: "UPS! Parece que el link es incorrecto 🙁"
+  INVALID_LINK: "UPS! Parece que el link es incorrecto 🙁",
+  UNSPECTED_ERROR: "¡Lo sentimos, Algo salio mal 😭!"
 };
 
-export default Texts;
+export default LABELS;

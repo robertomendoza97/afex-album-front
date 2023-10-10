@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import Texts from "../../const/Texts";
+import LABELS from "../../const/labels";
 import { AddSectionStyles } from "./Styles";
 import getYouTubeVideoId from "../../utils/youTubeUtils";
 import useVideoContext from "../../customHooks/useVideoContext";
@@ -57,8 +57,8 @@ const AddSection = () => {
 
   return (
     <AddSectionStyles>
-      <input type="text" onChange={handleChange} placeholder={Texts.ADD} />
-      <button onClick={handleClick}>{Texts.ADD}</button>
+      <input type="text" onChange={handleChange} placeholder={LABELS.ADD} />
+      <button onClick={handleClick}>{LABELS.ADD}</button>
     </AddSectionStyles>
   );
 };

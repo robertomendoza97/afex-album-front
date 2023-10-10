@@ -11,12 +11,17 @@ const ModalWrapper = () => {
 
     if (idTimeout.current) {
       clearTimeout(idTimeout.current);
-      showModal(false);
     }
+    showModal(false);
   };
 
   useEffect(() => {
-    if (getState().loaderMessaje !== "keep") {
+    if (
+      getState().loaderMessaje !== "keep" &&
+      getState().loaderMessaje !== "INIT" &&
+      getState().loaderMessaje !== "SAVING" &&
+      getState().loaderMessaje !== "DELETING"
+    ) {
       const id = setTimeout(() => {
         showModal(false);
       }, 5000);
@@ -31,7 +36,7 @@ const ModalWrapper = () => {
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getState().showModal]);
+  }, [getState().showModal, getState().loaderMessaje]);
 
   return (
     <ModalWrapperStyles
