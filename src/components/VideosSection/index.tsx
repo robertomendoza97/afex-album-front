@@ -25,11 +25,11 @@ const VideosSection = () => {
   return (
     <>
       {getState().videos.length > 0 ? (
-        getState().videos.map(video => (
-          <VideosSectionStyles>
+        <VideosSectionStyles>
+          {getState().videos.map(video => (
             <VideoItem key={video.ID} video={video} />
-          </VideosSectionStyles>
-        ))
+          ))}
+        </VideosSectionStyles>
       ) : (
         <NoVideos />
       )}

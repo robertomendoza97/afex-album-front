@@ -7,8 +7,8 @@ const convertTime = (timeString: string): string => {
   }
 
   const horas = match[1] ? `${match[1]}:` : "";
-  const minutos = match[2] ? `${match[2]}:` : "0:";
-  const segundos = match[3];
+  const minutos = match[2] ? `${match[2]}:` : horas ? "00:" : "0:";
+  const segundos = match[3].length > 1 ? match[3] : "0" + match[3];
 
   return `${horas}${minutos}${segundos}`;
 };

@@ -4,7 +4,7 @@
 
 AFEX ALBUM es una aplicación web desarrollada como parte de una prueba técnica para el puesto de desarrollador fullstack. Esta aplicación permite a los usuarios ingresar un enlace de YouTube, captura el ID del video y lo almacena en una base de datos DynamoDB a través de un servidor backend. Luego, muestra los videos guardados con miniaturas y brinda la opción de ver los videos en un modal emergente.
 
-![Alt text](image.png)
+![Alt text](./images/image.png)
 
 ## Características Clave
 
@@ -34,15 +34,15 @@ A continuación, se detallan los pasos para instalar y ejecutar el proyecto en u
 
 1. Abre la aplicación en tu navegador web.
 2. Ingresa un enlace de YouTube en el campo de entrada.  
-   ![Alt text](image-1.png)
+   ![Alt text](./images/image-1.png)
 3. Haz clic en "Añadir" para guardar el video.  
-   ![Alt text](image-2.png)
+   ![Alt text](./images/image-2.png)
 4. Los videos guardados se mostrarán con miniaturas.  
-   ![Alt text](image-3.png)
+   ![Alt text](./images/image-3.png)
 5. Para ver un video, haz clic en su miniatura y se abrirá un modal emergente.  
-   ![Alt text](image-5.png)
+   ![Alt text](./images/image-5.png)
 6. Para eliminar un video, haz clic en el botón de eliminación (X) que esta en la parte superior derecha.  
-   ![Alt text](image-6.png)
+   ![Alt text](./images/image-6.png)
 
 ## Contribución
 
