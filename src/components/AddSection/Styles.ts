@@ -48,6 +48,7 @@ export const AddSectionStyles = styled.div`
     flex-wrap: wrap;
 
     & > button {
+      width: 100%;
       border-radius: 0 0 10px 10px;
     }
 
