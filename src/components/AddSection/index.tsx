@@ -24,6 +24,7 @@ const AddSection = () => {
 
   const handleClick = async () => {
     const isValid = getYouTubeVideoId(getState().linkVideo);
+    if (!getState().linkVideo) return;
 
     if (isValid) {
       setModalContent(<Loader />);

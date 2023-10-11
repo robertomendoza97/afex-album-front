@@ -26,6 +26,7 @@ export const AddSectionStyles = styled.div`
   }
 
   & > button {
+    height: 57px;
     width: 253px;
     background-color: ${Colors.secondary};
     border: 1px solid ${Colors.secondary};
@@ -36,8 +37,28 @@ export const AddSectionStyles = styled.div`
     border-radius: 0 10px 10px 0;
     cursor: pointer;
 
+    padding: 20px 30px;
     &:active {
       opacity: 0.9;
+    }
+  }
+
+  @media screen and (width < 500px) {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > button {
+      border-radius: 0 0 10px 10px;
+    }
+
+    & > input {
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  @media screen and (width >= 500px) and (width <= 950px) {
+    & > button {
+      width: 30%;
     }
   }
 `;
